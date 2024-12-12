@@ -1,0 +1,23 @@
+
+<html>
+	<title>
+	successful log in 
+	</title>
+	<body>
+	 
+	 Hello {{user}}! welcome back, This is your homepage.<br>
+	 And here is a list of people who are using this site.<br>
+	 <ul>
+	 {% for u in users %}
+		<li>
+			<form action = "http://192.168.1.16:8000/chat/chatRoom" method = "post"> 
+			{% csrf_token %}
+			    <input type="hidden" name="reciever" value="{{u.user_text}}">
+				<input type="hidden" name="sender" value="{{user}}">
+				<button type="submit">Go to the chat room with {{u.user_text}}</button>
+			</form>
+		</li>
+	 {% endfor %}
+	 </ul?
+	</body>
+</html>

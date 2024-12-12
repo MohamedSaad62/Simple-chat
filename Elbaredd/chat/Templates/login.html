@@ -1,0 +1,26 @@
+
+<html>
+	<title>
+	</title>
+	<body>
+	 <form action="loging" method="post">
+     {% csrf_token %}
+
+	<div class="container">
+		<label for="uname"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="username" required>
+
+		<button type="submit">Login</button>
+		
+	  </div>
+	  
+	  
+	  
+	</form>
+	{% load static %}
+	<a href="http://192.168.1.16:8000/chat/create">Don't have a username yet?</a>
+			<center>
+			<img src= "{% static 'img.png' %}" width="500" height="600">
+			</center>
+	</body>
+</html>

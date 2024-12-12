@@ -1,0 +1,41 @@
+<html>
+	<title>
+	</title>
+	<body>
+		
+	  <form action="http://192.168.1.16:8000/chat/chatRoom/newMessage" method="post">
+		{% csrf_token %}
+		<h1>Chat with {{reciever}}</h1>
+		
+		<label for="msg"><b>Message</b></label>
+		<textarea placeholder="Type message.." name="msg" required></textarea>
+		<input type="hidden" name="sender" value="{{sender}}">
+		<input type="hidden" name="reciever" value="{{reciever}}">
+		<button type="submit" class="btn">Send</button>
+		
+	  </form>
+		<br>
+	   <form action="http://192.168.1.16:8000/chat/chatRoom" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="sender" value="{{sender}}">
+		<input type="hidden" name="reciever" value="{{reciever}}">
+		<button type="submit" class="btn">view new messages</button>
+		
+	  </form>
+	  <br>
+	  {% if c != 0 %}
+	  {% for msg in msgs %}
+			{% if msg.sender == sender %}
+				=
+			{% else %}
+			    -
+			{% endif %}
+			{{msg.message}} <br>
+	  {% endfor %} 
+      {% else %}
+          {{msgs}}
+      {% endif %}  		  
+	
+	
+	</body>
+</html>

@@ -1,0 +1,25 @@
+
+<html>
+	<title>
+	</title>
+	<body>
+		<form action="creating" method="post">
+		{% csrf_token %}
+
+		<div class="container">
+		<label for="uname"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="username" required>
+
+		<button type="submit">create</button>
+		
+	  </div>
+	  
+	  
+	  
+	</form>
+			{% load static %}
+			<center>
+			<img src= "{% static 'img.png' %}" width="500" height="600">
+			</center>
+	</body>
+</html>
